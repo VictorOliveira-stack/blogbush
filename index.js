@@ -41,15 +41,15 @@ const session = require('express-session')
 
 
 
-const redis = require('redis');
+/*const redis = require('redis');
 const connectRedis = require('connect-redis')
 const client = redis.createClient();
 
-const RedisStore = connectRedis(session)
+const RedisStore = connectRedis(session)*/
 const senhaUm = process.env.B_senha1
 
 app.use(session({
-    store: new RedisStore({client}),
+    //store: new RedisStore({client}),
     secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
     resave: false,
     saveUninitialized: false,
