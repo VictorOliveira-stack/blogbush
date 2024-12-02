@@ -1,0 +1,46 @@
+
+body{
+    background: rgb(120, 235, 216);
+}
+
+#home{
+    
+    border: 1px solid black;
+    
+
+}
+
+#login{
+    position: fixed;
+
+}
+.botao{
+    position: fixed;
+    background: rgb(26, 104, 172);
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px rgba(37, 37, 37, 0.514);
+    cursor: pointer;
+    font-size: 12pt ;
+    color: white;
+    
+}
+
+#postagens{
+    /*background-color: #e4f1e3ee;
+    font-size: 18pt;
+    width: 40em;
+    border-radius: 10px;
+    border: 1px solid black;
+    box-shadow: 0px 13px 15px rgba(0, 0, 0, 0.363);
+    
+    
+    margin-left: 8em;*/
+    text-align:center;
+    word-wrap: break-word;
+   
+}
+#contuedopostagens{
+    /*padding: 80px;
+    padding-top: 2em;*/
+    word-wrap: break-word;
+}

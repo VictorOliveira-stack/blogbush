@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="feed.css?v=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>  
+
+<div id="cabeça">
+  <div id="cabeçalho"></div>
+  <h1 id="nomepag"> Mondial &nbsp;&nbsp;Posting</h1>
+  
+   
+</div>
+  <div id="divi1"></div>
+  
+
+   <!-- Botão para abrir o menu -->
+   <div onclick="abrirMenu()" id="abrirMenu">☰</div>
+  
+  <div id="inicio"></div>
+  
+
+    <form action="/pesquisar " id="pesquisar" method="post">
+  
+        <a href="javascript:void(0)" class="fechar" id="fechar" onclick="fecharpesquisa()">X</a>
+        <br>
+        <input type="text" name="titulo" id="pesquisa" placeholder="Pesquisar">
+        <button type="submit" id="botaopesquisar" >Pesquisar</button>
+        <br><br>
+    </form>    
+    <br>
+
+    
+
+  <!-- Menu lateral -->
+  <div id="menuLateral" class="menu-lateral">
+    <a href="javascript:void(0)" class="fechar" onclick="fecharMenu()">&times;</a>
+    <a href="" id="ini" onclick="topo()">Inicio</a>
+    <a href="#" id="pesquise" onclick="pesquise()">Pesquisar</a>
+    <a href="vejamais.html">Veja Mais</a>
+    <a href="/login">Postar</a>
+    <a href="#" id="oi" onclick="oi()" >Sobre</a> <script src="sobre.js"></script>
+    
+    
+  </div>
+   
+    {{#each posts}}
+    
+    <div id="postagens">
+      <div id="cabeçaposts">
+      <div id="imgblog"></div>
+      </div>
+      <div id="pecabeçaposts"></div>
+    <div id="divtitu">
+      <h3 id="h3tituloposts">{{titulo}}</h3>
+    </div>
+    <p id="contuedopostagens">{{conteudo}}</p>
+    <br>
+    <iframe src="{{url}}" frameborder="0" id="iframe"></iframe>
+    <div id="data">{{createdAt}}</div>
+    <br><br>
+
+    <!--<a href="/login">
+        <button id="botaodeletar">deletar</button>
+    </a>-->
+    <div id="pepostagem"></div>
+    </div>
+    
+    <br>
+    {{/each}}
+
+
+    <script src="menulateral.js"></script>
+    
+</body>
+</html>

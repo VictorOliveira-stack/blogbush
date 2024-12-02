@@ -1,0 +1,49 @@
+ <link rel="stylesheet" href="pesquisa.css">
+<form action="/pesquisar" method="get">
+
+
+<!--<div id="voltarfeed">&#8656;</div> -->
+ <div id="cabeça">
+  <div id="cabeçalho"></div>
+     <h1 id="nomepag"> Mondial &nbsp;&nbsp;Posting</h1>
+  </div>
+  <div id="divi1"></div>
+  <br><br>
+    <div href="topo" id="inicio"></div>
+
+  <div onclick="abrirMenu()" id="abrirMenu">☰</div>
+
+  <!-- Menu lateral -->
+  <div id="menuLateral" class="menu-lateral">
+    <a href="javascript:void(0)" class="fechar" onclick="fecharMenu()">&times;</a>
+    <a href="/feed">Feed</a>
+    <a href="#">Serviços</a>
+    <a href="/login">Postar</a>
+    <a href="#">Contato</a>
+  </div>
+ <!--pesquisar-->
+    {{#if results}}
+    <br><br>
+    <div id="postagens">
+        <div id="cabeçaposts">
+        <div id="imgblog"></div>
+        </div>
+      <div id="pecabeçaposts"></div>
+        {{#each results}} 
+          <div id="divtitu">
+            <h3 id="h3tituloposts">{{titulo}}</h3>
+          </div>
+             <p id="contuedopostagens">{{conteudo}}</p> 
+             <br><br>
+              <iframe src="{{url}}" frameborder="0" id="iframe"></iframe>
+              <br><br>
+        {{/each}}
+    </div>
+    <br><br>
+    
+    {{else}}
+    <p>Nenhum resultado encontrado.</p>
+    {{/if}}
+</form>
+    
+     <script src="menuLateralPesq.js"></script>

@@ -1,0 +1,226 @@
+body{
+    background: linear-gradient(to bottom,#b6ecfc,#ddf3fc, #d0e3e9,#b6ecfc );
+    font-family: 'poppins' ,Arial;
+   
+    
+}
+
+#divgeral{
+    width: 100%;
+    word-wrap: break-word;
+    margin-right: 0;
+}
+@media (min-width: 1921px) and (max-width: 2650px){
+    #divgeral{
+        margin-left: 20%;
+    }
+}
+@media (min-width: 320px) and (max-width: 504px){
+    #divgeral{
+        width: 80%;
+        word-wrap: break-word;
+    }
+}
+#blogimage{
+    background-image: url("modialimagempreto.png");
+    width: 20em;
+    height: 8em;
+    background-size: cover;
+    margin-left: 3em;
+    
+}
+@media (min-width: 1921px) and (max-width: 2650px){
+    #blogimage{
+        background-image: url("modialimagempreto.png");
+        width: 40em;
+        height: 15em;
+        background-size: cover;
+        margin-left: 22%;
+        
+    }
+}
+@media (min-width: 320px) and (max-width: 504px){
+    #blogimage{
+        background-image: url("modialimagempreto.png");
+        width: 15em;
+        height: 5em;
+       
+        background-size: cover;
+        margin-left: -15px;
+        margin-right: 0;
+    }
+}
+.texto{
+ 
+    font-size: 18pt;
+    margin-left: 3em;
+    word-wrap: break-word;
+}
+@media (min-width: 320px) and (max-width: 504px){
+    .texto{
+        width: 74%;
+        font-size: 14pt;
+        margin-left: 4px;
+       
+    }
+}
+.imagem{
+    background-size: contain;
+    width: 20em;
+    height: 15em;
+    margin-left: 5px;
+   
+    background-repeat: no-repeat;
+    
+    
+}
+@media (min-width: 320px) and (max-width: 504px){
+    .imagem{
+        background-size: contain;
+        width: 70%;
+        
+        margin-left: 2px;
+        max-width: 90%;
+        background-repeat: no-repeat;
+        
+    }
+}
+@media (min-width: 505px) and (max-width: 2565px){
+    .imagem{
+        background-size: contain;
+        width: 70%;
+        margin-left: 10em;
+        max-width: 90%;
+        background-repeat: no-repeat;
+        
+    }
+}
+
+#mantiqueira{
+    background-image: url("Serra\ da\ Mantiqueira.JPG");
+    
+}
+
+#povos{
+    display: flex;
+}
+
+   
+@media (min-width: 320px) and (max-width: 504px){
+    #povos{
+        display: flex;
+        flex-direction: column;
+        margin-left: 1px;
+        width: 70%;
+    }
+}
+
+#machupicchu{
+    background-image: url("machu\ picchu.webp");
+}
+@media (min-width: 320px) and (max-width: 504px){
+    #machupicchu{
+        background-image: url("machu\ picchu.webp");
+       
+        width: 80%;
+        /*height: 14em;*/
+       
+    }
+}
+#incas{
+    background-image: url("incasjandn.png");
+   
+}
+@media (min-width: 1921px) and (max-width: 2650px){
+    #incas{
+        margin-left: -30em;
+    }
+}
+@media (min-width: 320px) and (max-width: 504px){
+    #incas{
+        background-image: url("incasjandn.png");
+        width: 80%;
+        height: 14em;
+    }  
+}
+
+#blanc{
+    background-image: url("Mont-Blanc.webp");
+}
+
+#escalador{
+    background-image: url("balmsaus.gif");
+}
+
+#hiking{
+    background-image: url("hiking.png");
+}
+
+#trekking{
+    background-image: url("Portais-de-Hercules.png");
+    
+    background-repeat: no-repeat;
+}
+#alpinista{
+    background-image: url("alpinista.png");
+}
+#trail{
+    background-image: url("corrida_em_montanha.png");
+}
+#asmaiores{
+    word-wrap: break-word;
+    width: 85%;
+}
+@media (min-width: 320px) and (max-width: 504px){
+    #asmaiores{
+        word-wrap: break-word;
+        width: 80%;
+    }
+}
+#everest{
+    background-image: url("monte-everest.png");
+}
+#aconcagua{
+    background-image: url("aconcagua.png");
+}
+#denail{
+    background-image: url("denali.png");
+}
+#kilimanjaro{
+    background-image: url("Kilimanjaro.png");
+}
+#Elbrus{
+    background-image: url("MMount_Elbrus.png");
+   
+}
+#vinson{
+    background-image: url("vinson.png");
+}
+#pyramid{
+    background-image: url("CARSTENSZ.png");
+}
+#Chimborazo{
+    background-image: url("Chimborazo.png");
+}
+#marumbi{
+    background-image: url("marumbi.png");
+}
+#gavea{
+    background-image: url("gavea.png");
+}
+#parana{
+    background-image: url("parana.png");
+}
+#imagemfinal{
+    background-image: url("imagemfinal.png");
+}
+.hr{
+    width: 60%;
+    margin: 0;
+}
+#h2prvsrj{
+    width: 80%;
+}
+#hchim{
+    width: 80%;
+}

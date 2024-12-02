@@ -1,0 +1,137 @@
+body{
+    background:  #ece9e7;
+}
+
+/*#formulario{
+    background: #def3dc;
+    width: 20em;
+    height: 23em;
+    margin-top: 125px;
+    margin-left: 500px;
+    border-radius: 10px;
+    padding-top: 30px;
+    padding-left: 30px;
+    box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+}*/
+@media (min-width: 320px) and (max-width: 398px){
+    #formulario{
+        background: #def3dc ;
+        width: 16em;
+        height: 22em;
+        margin-top: 7em;
+        margin-left: 5%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+@media (min-width: 399px) and (max-width: 504px){
+    #formulario{
+        background: #def3dc ;
+        width: 16em;
+        height: 22em;
+        margin-top: 7em;
+        margin-left: 15%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+
+@media (min-width: 505px) and (max-width: 603px){
+    #formulario{
+        background: #def3dc ;
+        width: 16em;
+        height: 22em;
+        margin-top: 7em;
+        margin-left: 20%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+@media (min-width: 604px) and (max-width: 768px){
+    #formulario{
+        background: #def3dc ;
+        width: 16em;
+        height: 22em;
+        margin-top: 7em;
+        margin-left: 30%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+@media (min-width: 769px) and (max-width: 1024px){
+    #formulario{
+        background: #def3dc ;
+        width: 16em;
+        height: 22em;
+        margin-top: 7em;
+        margin-left: 38%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px){
+    #formulario{
+        background: #def3dc ;
+        width: 16em;
+        height: 22em;
+        margin-top: 15em;
+        margin-left: 39%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+
+@media (min-width: 1281px) and (max-width: 1440px){
+    #formulario{
+        background: #def3dc ;
+        width: 16em;
+        height: 22em;
+        margin-top: 10em;
+        margin-left: 39%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+
+@media (min-width: 1441px) and (max-width: 1920px){
+    #formulario{
+        background: #def3dc ;
+        width: 20em;
+        height: 23em;
+        margin-top: 20em;
+        margin-left: 41%;
+        padding-left: 30px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
+
+@media (min-width: 1921px) and (max-width: 2650px){
+    #formulario{
+        background: #def3dc ;
+        width: 22em;
+        height: 25em;
+        margin-top: 20em;
+        margin-left: 41%;
+        padding-left: 80px;
+        padding-top: 20px;
+        border-radius: 10px;
+        box-shadow: 5px 6px 8px 8px  rgba(0, 0, 0, 0.205);
+    }
+}
