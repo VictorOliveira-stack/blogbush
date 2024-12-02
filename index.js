@@ -38,10 +38,11 @@ require('./auth')(passport)
 const session = require('express-session')
 
 
-const redis = require('redis');
+
 const connectRedis = require('connect-redis')
+const redis = require('redis');
+const RedisStore = connectRedis(session);
 const client = redis.createClient();
-const RedisStore = require('connect-redis')(session);
 const senhaUm = process.env.B_senha1
 
 app.use(session({
