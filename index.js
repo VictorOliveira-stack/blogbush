@@ -45,7 +45,7 @@ const redis = require('redis');
 const connectRedis = require('connect-redis')
 const client = redis.createClient();
 
-const RedisStore = connectRedis.default(session)
+const RedisStore = connectRedis.(session)
 const senhaUm = process.env.B_senha1
 
 app.use(session({
