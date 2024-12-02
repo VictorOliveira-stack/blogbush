@@ -37,7 +37,7 @@ require('./auth')(passport)
 const senhaUm = process.env.B_senha1
 
 app.use(session({
-    secret: senhaUm, /*process.env.B_usuario,*/
+    secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
     resave: false,
     saveUninitialized: false,
     cookie: {maxAge: 10 * 60 *1000}
