@@ -40,7 +40,7 @@ const session = require('express-session')
 
 
 
-const connectRedis = require('connect-redis')
+
 const redis = require('redis');
 const connectRedis = require('connect-redis')
 const client = redis.createClient();
