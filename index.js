@@ -39,7 +39,7 @@ const session = require('express-session')
 
 
 const redis = require('redis');
-cont connectRedis = require('connect-redis')
+const connectRedis = require('connect-redis')
 const client = redis.createClient();
 const RedisStore = require('connect-redis')(session);
 const senhaUm = process.env.B_senha1
