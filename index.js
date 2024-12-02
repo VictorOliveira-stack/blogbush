@@ -53,7 +53,7 @@ app.use(session({
     secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
     resave: false,
     saveUninitialized: false,
-    cookie: {maxAge: 10 * 60 *1000}
+    //cookie: {maxAge: 10 * 60 *1000}
 }))
 app.use(passport.initialize())
 app.use(passport.session())
