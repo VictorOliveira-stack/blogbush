@@ -35,14 +35,17 @@ function authenticateMiddleware(req, res, next){
 require('./auth')(passport)
 
 //session
+
 const session = require('express-session')
 
 
 
 const connectRedis = require('connect-redis')
 const redis = require('redis');
-const RedisStore = connectRedis(session);
+const connectRedis = require('connect-redis')
 const client = redis.createClient();
+
+const RedisStore = connectRedis.defaut(session)
 const senhaUm = process.env.B_senha1
 
 app.use(session({
