@@ -4,8 +4,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node index.js",
-    "start": " nodemon index.js --port=2021",
-    "dev": "node index.js"
+    "start": " node index.js ",
+    "dev": "nodemon index.js --port=3000"
   },
   "author": "Victor Oliveira",
   "license": "ISC",
