@@ -65,7 +65,7 @@ app.use(bodyParser.json())
 //rotas
 
 //tentando renderizar no feed
-app.get('/feed', function(req, res){
+app.get('/', function(req, res){
     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
      const postDat = posts.map( posta => ({
         createdAt: posta.createdAt,
