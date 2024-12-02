@@ -25,11 +25,7 @@ const path = require('path')
 
 const passport = require('passport')
 
-const session = require('express-session')
 
-const RedisStore = require('connect-redis')(session);
-const redis = require('redis');
-const client = redis.createClient();
 
 function authenticateMiddleware(req, res, next){
     if(req.isAutenticated()) return next()
@@ -39,6 +35,13 @@ function authenticateMiddleware(req, res, next){
 require('./auth')(passport)
 
 //session
+const session = require('express-session')
+
+
+const redis = require('redis');
+cont connectRedis = require('connect-redis')
+const client = redis.createClient();
+const RedisStore = require('connect-redis')(session);
 const senhaUm = process.env.B_senha1
 
 app.use(session({
@@ -197,6 +200,7 @@ app.get('/deletar/:createdAt',  function(req, res){
 });*/
 
 const db = require("./models/db")
+const { connect } = require('http2')
 
 app.post('/pesquisar', (req, res) => {
     const { titulo } = req.body;
