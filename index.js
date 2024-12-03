@@ -56,7 +56,7 @@ app.use(session({
    resave: false,
    saveUninitialized: false,
    store: new SequelizeStore({
-    db: process.env.MYSQL_DATABASE, // Banco de dados onde a sessão será armazenada
+    db: sequelize, // Banco de dados onde a sessão será armazenada
   }),
     cookie: {maxAge: 10 * 60 *1000}
 }))
