@@ -30,23 +30,36 @@ module.exports = {
 
 require('dotenv').config();
 
-const Sequelize = require('sequelize');
+//const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize( process.env.MYSQL_PUBLIC_URL /*process.env.DATABASE_URL*/ || {
-    host: process.env.MYSQLHOST,
-    dialect: 'mysql',
-    username: process.env.MYSQLUSER,
-    password: process.env.MYSQL_ROOT_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+//const sequelize = new Sequelize( process.env.MYSQL_PUBLIC_URL /*process.env.DATABASE_URL*/ || {
+    //host: process.env.MYSQLHOST,
+   // dialect: 'mysql',
+    //username: process.env.MYSQLUSER,
+    //password: process.env.MYSQL_ROOT_PASSWORD,
+    //database: process.env.MYSQL_DATABASE,
     //port: process.env.MYSQLPORT,
-    ssl:true,
+   // ssl:true,
+    //dialectOptions: {
+        //ssl:{
+           // require: true,
+           // rejectUnauthorized: false
+       // }
+   // }
+//});
+
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'mysql',
+    protocol: 'mysql',
+    ssl: true,  // Railway exige SSL para a conexão
     dialectOptions: {
-        ssl:{
-            require: true,
-            rejectUnauthorized: false
-        }
+      ssl: {
+        require: true,
+        rejectUnauthorized: false // Ignora erros de certificado SSL
+      }
     }
-});
+  });
+  
 
 module.exports = {
     Sequelize: Sequelize,
