@@ -84,11 +84,10 @@ app.use(bodyParser.json())
 
 
 //rotas
-app.get('/', function(req, res){
-    return res.render('vejamais.html')
-})
+
 //tentando renderizar no feed
-app.get('/feed', function(req, res){
+                /*feed*/
+app.get('/ ', function(req, res){
     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
      const postDat = posts.map( posta => ({
         createdAt: posta.createdAt,
@@ -161,7 +160,7 @@ app.post('/add',/*authenticateMiddleware,*/ function(req,res){
         conteudo: req.body.conteudo,
         url : req.body.url
     }).then(function(){
-        res.redirect('/feed'/*'/home'*/)
+        res.redirect('/'/*'/feed'*//*'/home'*/)
     }).catch(function(erro){
         res.send('houve um erro' + erro)
     })
@@ -180,7 +179,7 @@ app.post('/add',/*authenticateMiddleware,*/ function(req,res){
 app.get('/deletar/:createdAt',  function(req, res){
     Post.destroy({where: {'createdAt': req.params.createdAt}}).then(function(){
         //res.send('postagem deletada')
-        res.redirect('/feed' /*'/home'*/)
+        res.redirect( '/' /*'/feed'*/ /*'/home'*/)
     }).catch(function(erro){
         res.send('essa postagem não existe!' + erro)
     })
