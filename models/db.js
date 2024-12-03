@@ -37,7 +37,7 @@ const sequelize = new Sequelize( process.env.MYSQL_PUBLIC_URL /*process.env.DATA
     dialect: 'mysql',
     username: process.env.MYSQLUSER,
     password: process.env.MYSQL_ROOT_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    database: process.env.MYSQLDATABASE,
     port: process.env.MYSQLPORT,
    ssl:true,
     dialectOptions: {
