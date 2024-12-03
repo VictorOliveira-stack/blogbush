@@ -89,12 +89,12 @@ app.use(bodyParser.json())
                 /*feed*/
 app.get('/ ', function(req, res){
     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
-     const postDat = posts.map( posta => ({
-        createdAt: posta.createdAt,
-        titulo: posta.titulo,
-        conteudo: posta.conteudo,
-        url: posta.url,
-        createdAt: posta.createdAt
+     const postDat = db.posts.map( posta => ({
+        createdAt: db.posta.createdAt,
+        titulo: db.posta.titulo,
+        conteudo: db.posta.conteudo,
+        url: db.posta.url,
+        createdAt: db.posta.createdAt
      }))   
    
         return res.render("feed.handlebars", {posts: postDat})
