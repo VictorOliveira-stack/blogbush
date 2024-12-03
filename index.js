@@ -96,8 +96,8 @@ app.get('/feed', function(req, res){
         createdAt: posta.createdAt
      }))   
    
-        //res.render("feed.handlebars", {posts: postDat})
-        return res.redirect('/feed')
+        return res.render("feed.handlebars", {posts: postDat})
+        
      })
 })
 
