@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const Express = require("express")
 const app = Express()
-const port = process.env.Port
+const port = process.env.PORT
 
 const handlebars = require ('express-handlebars')
 
