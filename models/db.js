@@ -24,6 +24,6 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 });
 
 module.exports = {
-  Sequelize,
-  sequelize
+  Sequelize: Sequelize,
+  sequelize: sequelize
 };
