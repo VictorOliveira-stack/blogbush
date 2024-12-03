@@ -18,8 +18,8 @@ const Sequelize = require('sequelize');
 
 // Pegue a URL de conexão do MySQL do Railway
 const sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialect: 'mysql',
-    protocol: 'mysql',
+    dialect: 'mysql2',
+    protocol: 'mysql2',
     logging: false,  // Desativa os logs SQL, se necessário
 });
 
