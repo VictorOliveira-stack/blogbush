@@ -84,7 +84,9 @@ app.use(bodyParser.json())
 
 
 //rotas
-
+app.get('/', function(req, res){
+    return res.render('vejamais.html')
+})
 //tentando renderizar no feed
 app.get('/feed', function(req, res){
     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
