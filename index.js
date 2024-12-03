@@ -48,13 +48,21 @@ const client = redis.createClient();
 const RedisStore = connectRedis(session)*/
 const senhaUm = process.env.B_senha1
 
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 app.use(session({
     //store: new RedisStore({client}),
    secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
    resave: false,
    saveUninitialized: false,
+   store: new SequelizeStore({
+    db: process.env.MYSQL_DATABASE, // Banco de dados onde a sessão será armazenada
+  }),
     cookie: {maxAge: 10 * 60 *1000}
 }))
+sequelize.sync().then(() => {
+    console.log("Sessões serão armazenadas no banco de dados.");
+  });
 
 app.use(passport.initialize())
 app.use(passport.session())
