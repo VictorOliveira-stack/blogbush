@@ -15,6 +15,7 @@ const { connect } = require('http2')
 
 const sequelize= require('./models/db'); // Importa o Sequelize configurado
 const { QueryTypes } = require('sequelize');
+const {sequelize} = db;
 
 const Sequelize = require("sequelize")
 //const sequelize = Sequelize
