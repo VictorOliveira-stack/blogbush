@@ -7,7 +7,7 @@
     "install:dev": "npm install",              
     "start": "node index.js",
     "test": "node index.js",
-    "dev": "nodemon index.js --port=3001"
+    "dev": "nodemon index.js --port=3000"
   },
   "author": "Victor Oliveira",
   "license": "ISC",
