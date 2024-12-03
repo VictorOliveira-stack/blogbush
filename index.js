@@ -48,13 +48,14 @@ const client = redis.createClient();
 const RedisStore = connectRedis(session)*/
 const senhaUm = process.env.B_senha1
 
-//app.use(session({
+app.use(session({
     //store: new RedisStore({client}),
-   // secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
-   // resave: false,
-   // saveUninitialized: false,
-    //cookie: {maxAge: 10 * 60 *1000}
-//}))
+   secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
+   resave: false,
+   saveUninitialized: false,
+    cookie: {maxAge: 10 * 60 *1000}
+}))
+
 app.use(passport.initialize())
 app.use(passport.session())
 
