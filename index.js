@@ -10,6 +10,9 @@ const bodyParser = require("body-parser")
 
 const Post = require ('./models/post')
 
+const db = require("./models/db")
+const { connect } = require('http2')
+
 const sequelize= require('./models/db'); // Importa o Sequelize configurado
 const { QueryTypes } = require('sequelize');
 
@@ -56,7 +59,7 @@ app.use(session({
    resave: false,
    saveUninitialized: false,
    store: new SequelizeStore({
-    db: sequelize, // Banco de dados onde a sessão será armazenada
+    db: db.sequelize, // Banco de dados onde a sessão será armazenada
   }),
     cookie: {maxAge: 10 * 60 *1000}
 }))
@@ -212,8 +215,7 @@ app.get('/deletar/:createdAt',  function(req, res){
     });
 });*/
 
-const db = require("./models/db")
-const { connect } = require('http2')
+
 
 app.post('/pesquisar', (req, res) => {
     const { titulo } = req.body;
