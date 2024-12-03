@@ -32,7 +32,7 @@ require('dotenv').config();
 
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize( 'mysql://root:DSoJgoxppGUcEoumGPWjjjUXsReKvMhN@junction.proxy.rlwy.net:20106/railway' /*process.env.MYSQL_PUBLIC_URL /*process.env.DATABASE_URL*/ /*||*/ {
+const sequelize = new Sequelize( 'mysql://root:DSoJgoxppGUcEoumGPWjjjUXsReKvMhN@junction.proxy.rlwy.net:20106/railway', /*process.env.MYSQL_PUBLIC_URL /*process.env.DATABASE_URL*/ /*||*/ {
     host: process.env.MYSQLHOST,
     dialect: 'mysql',
     username: process.env.MYSQLUSER,
