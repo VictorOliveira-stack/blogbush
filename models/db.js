@@ -13,7 +13,7 @@ module.exports = {
     sequelize: sequelize
 }
 */
-require('dotenv').config();
+/*require('dotenv').config();
 const Sequelize = require('sequelize');
 
 // Pegue a URL de conexão do MySQL do Railway
@@ -26,4 +26,22 @@ const sequelize = new Sequelize(process.env.DATABASE_URL, {
 module.exports = {
   Sequelize: Sequelize,
   sequelize: sequelize
+};*/
+
+require('dotenv').config();
+
+const Sequelize = require('sequelize');
+
+const sequelize = new Sequelize(process.env.DATABASE_URL || {
+    host: process.env.MYSQLHOST,
+    dialect: 'mysql',
+    username: process.env.MYSQLUSER,
+    password: process.env.MYSQL_ROOT_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
+    port: process.env.MYSQLPORT || 3306
+});
+
+module.exports = {
+    Sequelize: Sequelize,
+    sequelize: sequelize
 };
