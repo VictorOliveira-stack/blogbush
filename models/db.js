@@ -38,7 +38,14 @@ const sequelize = new Sequelize(process.env.DATABASE_URL || {
     username: process.env.MYSQLUSER,
     password: process.env.MYSQL_ROOT_PASSWORD,
     database: process.env.MYSQL_DATABASE,
-    port: process.env.MYSQLPORT || 3306
+    port: process.env.MYSQLPORT || 3306,
+    ssl:true,
+    dialectOptions: {
+        ssl:{
+            require: true,
+            rejectUnauthorized: false
+        }
+    }
 });
 
 module.exports = {
