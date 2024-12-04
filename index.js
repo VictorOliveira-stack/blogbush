@@ -29,9 +29,9 @@ const path = require('path')
 
 const passport = require('passport')
 
-app.get('/', function(req, res) {
+/*app.get('/', function(req, res) {
     res.send('ola')
-})
+})*/
 
 //tentando renderizar no feed
                 /*feed*/
