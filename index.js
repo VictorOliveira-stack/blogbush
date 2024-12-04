@@ -26,6 +26,7 @@ const seqdb = require('./models/db')*/
 //
 const path = require('path')
 
+app.set('views', path.join(__dirname, views));
 
 const passport = require('passport')
 
@@ -36,19 +37,19 @@ const passport = require('passport')
 //tentando renderizar no feed
                 /*feed*/
                 app.get('/', function(req, res){
-                    /*Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
+                    Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
                      const postDat = posts.map( posta => ({
                         createdAt: posta.createdAt, 
                         titulo: posta.titulo,
                         conteudo: posta.conteudo,
                         url: posta.url,
                         createdAt: posta.createdAt
-                     }))   */
+                     }))   
                     
                         return res.render("feed.handlebars", {posts: postDat})
                         
                      })
-                //})
+                })
 
 
 function authenticateMiddleware(req, res, next){
