@@ -74,16 +74,16 @@ const senhaUm = process.env.B_senha1
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-app.use(session({
-    //store: new RedisStore({client}),
-   secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
-   resave: false,
-   saveUninitialized: false,
-   store: new SequelizeStore({
-    db: db.sequelize, // Banco de dados onde a sessão será armazenada
-  }),
-    cookie: {maxAge: 10 * 60 *1000}
-}))
+//app.use(session({
+    // //store: new RedisStore({client}),
+   //secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
+   //resave: false,
+  // saveUninitialized: false,
+  // store: new SequelizeStore({
+   // db: db.sequelize, // Banco de dados onde a sessão será armazenada
+  //}),
+ //   cookie: {maxAge: 10 * 60 *1000}
+//}))
 /*sequelize.sync().then(() => {
     console.log("Sessões serão armazenadas no banco de dados.");
   });*/
@@ -93,6 +93,20 @@ app.use(session({
         console.error("Erro ao conectar no banco:", err);
         process.exit(1); // Encerra o servidor se o banco estiver inacessível
     });
+
+    //const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
+app.use(session({
+  store: new SequelizeStore({
+    db: db.sequelize,
+    checkExpirationInterval: 15 * 60 * 1000, // A cada 15 minutos
+    expiration: 24 * 60 * 60 * 1000 // Expira em 24 horas
+  }),
+  secret: 'seu-segredo',
+  resave: false,
+  saveUninitialized: false,
+  cookie: { maxAge: 10 * 60 * 1000 } // Ajuste o tempo do cookie se necessário
+}));
 
 app.use(passport.initialize())
 app.use(passport.session())
