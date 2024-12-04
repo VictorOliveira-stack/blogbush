@@ -35,9 +35,9 @@ const passport = require('passport')
 
 //tentando renderizar no feed
                 /*feed*/
-                app.get('/ ', function(req, res){
+                app.get('/', function(req, res){
                     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
-                     const postDat = db.posts.map( posta => ({
+                     const postDat = posts.map( posta => ({
                         createdAt: posta.createdAt, /*remover esse db. quando a internet voltar se nao der certo*/
                         titulo: posta.titulo,
                         conteudo: posta.conteudo,
