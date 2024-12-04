@@ -3,7 +3,7 @@ const app = Express()
 //const PORT = process.env.PORT || 3000 || 8080
 
 app.get('/' , function(req, res){
-    return res.render('feed.handlebars')
+    return res.render('sobre.html')
 })
 
 app.listen(3000 || 8080, "0.0.0.0", function(){
