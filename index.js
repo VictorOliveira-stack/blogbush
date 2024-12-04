@@ -239,9 +239,6 @@ app.post('/pesquisar', (req, res) => {
     });
 });
 
-//ler sobre isso depois do deploy
-app.get('/favicon.ico', (req, res) => res.status(204).end());
-
 
 //css
 app.use(Express.static('views'))
