@@ -26,7 +26,7 @@ const seqdb = require('./models/db')*/
 //
 const path = require('path')
 
-app.set('views', path.join(__dirname, views));
+app.set('views', path.join(__dirname, 'views'));
 
 const passport = require('passport')
 
