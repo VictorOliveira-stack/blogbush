@@ -27,5 +27,6 @@
     "redis": "^4.7.0",
     "sequelize": "^6.37.3"
   },
-  "description": ""
+  "description": "blogbushv1",
+  "devDependencies": {}
 }
