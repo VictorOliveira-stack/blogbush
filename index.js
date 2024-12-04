@@ -274,6 +274,6 @@ app.use(Express.static('css'))
 
 app.get('/favicon.ico', (req, res) => res.status(204).send());
 
-app.listen( 3000 || 8080 /*port*/, "0.0.0.0", function(){
+app.listen( process.env.PORT || 3000 || 8080 /*port*/, "0.0.0.0", function(){
     console.log("porta rodando")
 })
