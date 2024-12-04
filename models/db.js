@@ -39,7 +39,7 @@ const sequelize = new Sequelize( 'mysql://root:DSoJgoxppGUcEoumGPWjjjUXsReKvMhN@
     password: process.env.MYSQL_ROOT_PASSWORD,
     database: process.env.MYSQLDATABASE,
     port: process.env.MYSQLPORT,
-   ssl:true,
+   //ssl:true,
     dialectOptions: {
         ssl:{
             require: true,

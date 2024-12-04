@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const Express = require("express")
 const app = Express()
-//const port = process.env.PORT || 8080 /*3000*/;
+const port = process.env.PORT || 8080 /*3000*/;
 
 const handlebars = require ('express-handlebars')
 
@@ -29,6 +29,22 @@ const path = require('path')
 
 const passport = require('passport')
 
+//tentando renderizar no feed
+                /*feed*/
+                app.get('/ ', function(req, res){
+                    Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
+                     const postDat = db.posts.map( posta => ({
+                        createdAt: posta.createdAt, /*remover esse db. quando a internet voltar se nao der certo*/
+                        titulo: posta.titulo,
+                        conteudo: posta.conteudo,
+                        url: posta.url,
+                        createdAt: posta.createdAt
+                     }))   
+                   
+                        return res.render("feed.handlebars", {posts: postDat})
+                        
+                     })
+                })
 
 
 function authenticateMiddleware(req, res, next){
@@ -85,22 +101,7 @@ app.use(bodyParser.json())
 
 //rotas
 
-//tentando renderizar no feed
-                /*feed*/
-app.get('/ ', function(req, res){
-    Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
-     const postDat = db.posts.map( posta => ({
-        createdAt: posta.createdAt, /*remover esse db. quando a internet voltar se nao der certo*/
-        titulo: posta.titulo,
-        conteudo: posta.conteudo,
-        url: posta.url,
-        createdAt: posta.createdAt
-     }))   
-   
-        return res.render("feed.handlebars", {posts: postDat})
-        
-     })
-})
+
 
 //view home
 //estou tentando a pag home ter altenticaçao
@@ -247,8 +248,8 @@ app.use(Express.static('css'))
 
 
 
+app.get('/favicon.ico', (req, res) => res.status(204).end());
 
-
-app.listen( process.env.PORT /*port*/, "0.0.0.0", function(){
+app.listen( process.env.PORT || 8080 /*port*/, "0.0.0.0", function(){
     console.log("porta rodando")
 })
