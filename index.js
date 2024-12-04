@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 
 //tentando renderizar no feed
                 /*feed*/
-                app.get('/feed ', function(req, res){
+                app.get('/ ', function(req, res){
                     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
                      const postDat = db.posts.map( posta => ({
                         createdAt: posta.createdAt, /*remover esse db. quando a internet voltar se nao der certo*/
