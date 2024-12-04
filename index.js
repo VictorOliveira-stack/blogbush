@@ -80,9 +80,15 @@ app.use(session({
   }),
     cookie: {maxAge: 10 * 60 *1000}
 }))
-sequelize.sync().then(() => {
+/*sequelize.sync().then(() => {
     console.log("Sessões serão armazenadas no banco de dados.");
-  });
+  });*/
+  sequelize.authenticate()
+    .then(() => console.log("Conexão com banco de dados bem-sucedida."))
+    .catch(err => {
+        console.error("Erro ao conectar no banco:", err);
+        process.exit(1); // Encerra o servidor se o banco estiver inacessível
+    });
 
 app.use(passport.initialize())
 app.use(passport.session())
