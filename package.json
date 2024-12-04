@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "install:prod": "npm install --omit=dev",  
-    "install:dev": "npm install",              
+    "install:prod": "npm install --omit=dev",
+    "install:dev": "npm install",
     "start": "node index.js",
     "test": "node index.js",
     "dev": "nodemon index.js --port=3000"
@@ -18,7 +18,7 @@
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "express-handlebars": "^5.0.0",
     "express-session": "^1.18.1",
     "mysql2": "^3.10.1",
