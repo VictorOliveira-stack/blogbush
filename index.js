@@ -91,12 +91,14 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 /*sequelize.sync().then(() => {
     console.log("Sessões serão armazenadas no banco de dados.");
   });*/
-  sequelize.authenticate()
+  
+  
+  /*sequelize.authenticate()
     .then(() => console.log("Conexão com banco de dados bem-sucedida."))
     .catch(err => {
         console.error("Erro ao conectar no banco:", err);
         process.exit(1); // Encerra o servidor se o banco estiver inacessível
-    });
+    });*/
 
     //const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -189,17 +191,18 @@ app.get('/form',authenticateMiddleware, function(req, res){
     res.render('formulario.handlebars')
 })
 
-app.post('/add',/*authenticateMiddleware,*/ function(req,res){
-    Post.create({
-        titulo: req.body.titulo,
-        conteudo: req.body.conteudo,
-        url : req.body.url
-    }).then(function(){
-        res.redirect('/'/*'/feed'*//*'/home'*/)
-    }).catch(function(erro){
-        res.send('houve um erro' + erro)
-    })
-})
+
+//app.post('/add',/*authenticateMiddleware,*/ function(req,res){
+  //  Post.create({
+    //    titulo: req.body.titulo,
+      //  conteudo: req.body.conteudo,
+        //url : req.body.url
+    //}).then(function(){
+      //  res.redirect('/'/*'/feed'*//*'/home'*/)
+    //}).catch(function(erro){
+      //  res.send('houve um erro' + erro)
+    //})
+//})
 
 
 
