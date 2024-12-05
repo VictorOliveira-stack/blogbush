@@ -1,6 +1,6 @@
 const db = require ('./db')
 
-const Post = db.sequelize.define('blogbush4s',{
+const Post = db.sequelize.define('blogbush4s1s',{
     titulo: {
         type: db.Sequelize.STRING
 
@@ -24,7 +24,7 @@ const Post = db.sequelize.define('blogbush4s',{
         console.error('Erro ao criar post:', error);
     });*/
 
-//Post.sync({force: true})
+Post.sync({force: true})
 
 module.exports = Post
 
