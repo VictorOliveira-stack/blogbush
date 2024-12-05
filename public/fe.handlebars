@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feed</title>
+</head>
+<body>
+    <div id="posts-container">
+        <p>Carregando posts...</p>
+    </div>
+
+    <script>
+        // Função para carregar os posts usando AJAX
+        async function loadPosts() {
+            try {
+                const response = await fetch('/api/posts'); // Rota de onde você vai buscar os posts
+                const posts = await response.json();
+
+                const postsContainer = document.getElementById('posts-container');
+                postsContainer.innerHTML = ''; // Limpar a mensagem de carregamento
+
+                // Adicionar os posts ao DOM
+                posts.forEach(post = {
+                    const postElement = document.createElement('div');
+                    postElement.innerHTML = `
+                        <h3>${post.titulo}</h3>
+                        <p>${post.conteudo}</p>
+                        <p><small>${post.createdAt}</small></p>
+                    `;
+                    postsContainer.appendChild(postElement);
+                });
+            } catch (error) {
+                console.error('Erro ao carregar os posts:', error);
+            }
+        }
+
+        // Carregar os posts quando a página for carregada
+        window.onload = loadPosts;
+    </script>
+</body>
+</html>
