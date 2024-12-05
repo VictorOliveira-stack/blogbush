@@ -57,7 +57,8 @@
 
                 const postsContainer = document.getElementById('posts-container');
                 postsContainer.innerHTML = ''; // Limpar a mensagem de carregamento
-   
+            
+            }
     {{#each posts}}
     
     <div id="postagens">
@@ -85,7 +86,9 @@
 
 
     <script src="menulateral.js"></script>
+    
      window.onload = loadPosts;
+        }
     </script>
 </body>
 </html>
