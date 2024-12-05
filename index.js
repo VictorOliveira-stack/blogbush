@@ -33,11 +33,31 @@ const passport = require('passport')
 
 //tentando renderizar no feed
                 /*feed*/
-                app.get('/', async function(req, res)  {
+
+                app.get('/', async function (req, res) {
+                    try {
+                        const posts = await Post.findAll({ order: [['id', 'DESC']] }); // Busca os posts no banco de dados
+                        
+                        // Mapeia os dados para o formato necessário
+                        const postDat = posts.map(posta => ({
+                            createdAt: posta.createdAt,
+                            titulo: posta.titulo,
+                            conteudo: posta.conteudo,
+                            url: posta.url
+                        }));
+                        
+                        // Renderiza a página com os dados
+                        return res.render('feed.handlebars', { posts: postDat });
+                    } catch (error) {
+                        console.error('Erro ao buscar posts:', error.message);
+                        res.status(500).send('Erro interno no servidor');
+                    }
+                });
+                /*app.get('/', async function(req, res)  {
                     try{
                    await Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
-                     const postDat = db.posts.map( posta => ({
-                        createdAt: posta.createdAt, /*remover esse db. quando a internet voltar se nao der certo*/
+                     const postDat = posts.map( posta => ({
+                        createdAt: posta.createdAt, 
                         titulo: posta.titulo,
                         conteudo: posta.conteudo,
                         url: posta.url,
@@ -50,7 +70,7 @@ const passport = require('passport')
                         console.error('Erro ao buscar posts:', error.message);
                         res.status(500).send('Erro interno no servidor');
                      }
-                })
+                })*/
 
 
 function authenticateMiddleware(req, res, next){
