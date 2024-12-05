@@ -50,7 +50,7 @@ const sequelize = new Sequelize( 'mysql://root:DSoJgoxppGUcEoumGPWjjjUXsReKvMhN@
       max: 5, // Número máximo de conexões
       min: 0,  // Número mínimo de conexões
       acquire: 30000, // Tempo máximo para obter uma conexão
-      idle: 10000 // Tempo de inatividade antes de fechar a conexão
+      idle: 30000 // Tempo de inatividade antes de fechar a conexão
   }
 });
 
