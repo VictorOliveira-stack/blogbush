@@ -33,7 +33,8 @@ const passport = require('passport')
 
 //tentando renderizar no feed
                 /*feed*/
-                app.get('/', function(req, res){
+                app.get('/', async function(req, res)  {
+                    try{
                     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
                      const postDat = db.posts.map( posta => ({
                         createdAt: posta.createdAt, /*remover esse db. quando a internet voltar se nao der certo*/
@@ -45,7 +46,10 @@ const passport = require('passport')
                    
                         return res.render("feed.handlebars", {posts: postDat})
                         
-                     })
+                     })} catch(error){
+                        console.error('Erro ao buscar posts:', error.message);
+                        res.status(500).send('Erro interno no servidor');
+                     }
                 })
 
 
