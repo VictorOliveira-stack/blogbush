@@ -47,7 +47,7 @@ const passport = require('passport')
                         }));
                         
                         // Renderiza a página com os dados
-                        return res.render('fe.handlebars', { posts: postDat });
+                        return res.render('feed.handlebars', { posts: postDat });
                     } catch (error) {
                         console.error('Erro ao buscar posts:', error.message);
                         res.status(500).send('Erro interno no servidor');
