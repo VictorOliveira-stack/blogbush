@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const Express = require("express")
 const app = Express()
-const port = process.env.PORT || 8080 /*3000*/;
+//const port = process.env.PORT || 8080 /*3000*/;
 
 const handlebars = require ('express-handlebars')
 
@@ -272,6 +272,6 @@ app.use(Express.static('css'))
 
 app.get('/favicon.ico', (req, res) => res.status(204).send());
 
-app.listen( port || 8080 || 3000 /*port*/, "0.0.0.0", function(){
+app.listen( process.env.PORT || 8080 || 3000 /*port*/, "0.0.0.0", function(){
     console.log("porta rodando")
 })
