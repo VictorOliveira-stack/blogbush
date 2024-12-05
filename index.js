@@ -264,14 +264,16 @@ app.post('/pesquisar', (req, res) => {
 
 
 //css
-app.use(Express.static('views'))
-app.use(Express.static('css'))
+//app.use(Express.static('views'))
+//app.use(Express.static('css'))
+
+app.use(Express.static(path.join(__dirname, 'public')))
 
 
 
 
 app.get('/favicon.ico', (req, res) => res.status(204).send());
 
-app.listen( /*process.env.PORT || 8080 ||*/ 3000 /*port*/, "0.0.0.0", function(){
+app.listen( process.env.PORT || 8080 , "0.0.0.0", function(){
     console.log("porta rodando")
 })
