@@ -270,7 +270,7 @@ app.post('/pesquisar', (req, res) => {
 app.use(Express.static(path.join(__dirname, 'public')))
 
 
-app.use('/favicon.ico', express.static(path.join(__dirname, 'public', 'favicon.ico')));
+app.use('/favicon.ico', Express.static(path.join(__dirname, 'public', 'favicon.ico')));
 app.set('trust proxy', true);
 
 //app.get('/favicon.ico', (req, res) => res.status(204).send());
