@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const Express = require("express")
 const app = Express()
-//const port = process.env.PORT || 8080 /*3000*/;
+const port = process.env.PORT || 8080 /*3000*/;
 
 const handlebars = require ('express-handlebars')
 
@@ -26,29 +26,25 @@ const seqdb = require('./models/db')*/
 //
 const path = require('path')
 
-app.set('views', path.join(__dirname, 'views'));
 
 const passport = require('passport')
 
-/*app.get('/', function(req, res) {
+app.get('/', function(req, res) {
     res.send('ola')
-})*/
-app.get('/', function(req,res){
-    return res.render('ola.handlebars')
 })
 
 //tentando renderizar no feed
                 /*feed*/
-               app.get('/feed', function(req, res){
+                app.get('/feed ', function(req, res){
                     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
-                     const postDat = posts.map( posta => ({
-                        createdAt: posta.createdAt, 
+                     const postDat = db.posts.map( posta => ({
+                        createdAt: posta.createdAt, /*remover esse db. quando a internet voltar se nao der certo*/
                         titulo: posta.titulo,
                         conteudo: posta.conteudo,
                         url: posta.url,
                         createdAt: posta.createdAt
                      }))   
-                    
+                   
                         return res.render("feed.handlebars", {posts: postDat})
                         
                      })
@@ -78,20 +74,19 @@ const senhaUm = process.env.B_senha1
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-app.use(session({
-     //store: new RedisStore({client}),
-   secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
-   resave: false,
-   saveUninitialized: false,
-   store: new SequelizeStore({
-     db: db.sequelize, // Banco de dados onde a sessão será armazenada
-  }),
-    cookie: {maxAge: 10 * 60 *1000}
-}))
-sequelize.sync().then(() => {
+//app.use(session({
+    // //store: new RedisStore({client}),
+   //secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
+   //resave: false,
+  // saveUninitialized: false,
+  // store: new SequelizeStore({
+   // db: db.sequelize, // Banco de dados onde a sessão será armazenada
+  //}),
+ //   cookie: {maxAge: 10 * 60 *1000}
+//}))
+/*sequelize.sync().then(() => {
     console.log("Sessões serão armazenadas no banco de dados.");
-  });
-  
+  });*/
   sequelize.authenticate()
     .then(() => console.log("Conexão com banco de dados bem-sucedida."))
     .catch(err => {
@@ -100,8 +95,6 @@ sequelize.sync().then(() => {
     });
 
     //const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
-
 
 app.use(session({
   store: new SequelizeStore({
@@ -114,8 +107,6 @@ app.use(session({
   saveUninitialized: false,
   cookie: { maxAge: 10 * 60 * 1000 } // Ajuste o tempo do cookie se necessário
 }));
-
-
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -138,8 +129,6 @@ app.use(bodyParser.json())
 
 //view home
 //estou tentando a pag home ter altenticaçao
-
-
 app.post('/home', function(req, res){
     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
      const postData = posts.map( post => ({
@@ -190,7 +179,6 @@ app.get('/form',authenticateMiddleware, function(req, res){
     res.render('formulario.handlebars')
 })
 
-
 app.post('/add',/*authenticateMiddleware,*/ function(req,res){
     Post.create({
         titulo: req.body.titulo,
@@ -213,17 +201,14 @@ app.post('/add',/*authenticateMiddleware,*/ function(req,res){
 //vou substituir o botao delete pra renderizar um html e apos verificacao por senha apagar o post
         //no antigo html estava assim  a rota /deletar/ com duas//
 
-
-       
 app.get('/deletar/:createdAt',  function(req, res){
     Post.destroy({where: {'createdAt': req.params.createdAt}}).then(function(){
-        res.send('postagem deletada')
+        //res.send('postagem deletada')
         res.redirect( '/' /*'/feed'*/ /*'/home'*/)
     }).catch(function(erro){
-       res.send('essa postagem não existe!' + erro)
+        res.send('essa postagem não existe!' + erro)
     })
 })
-
 
 //pesquisar
 /*app.post('/pesquisar', (req, res) => {
@@ -289,6 +274,6 @@ app.use(Express.static('css'))
 
 app.get('/favicon.ico', (req, res) => res.status(204).send());
 
-app.listen( process.env.PORT || 8080 || 3000 /*port*/ /*"0.0.0.0"*/,  function(){
+app.listen( port || 8080 || 3000 /*port*/, "0.0.0.0", function(){
     console.log("porta rodando")
 })
