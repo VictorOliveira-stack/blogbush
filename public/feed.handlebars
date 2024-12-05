@@ -48,6 +48,15 @@
     
     
   </div>
+   <script>
+        // Função para carregar os posts usando AJAX
+        async function loadPosts() {
+            try {
+                const response = await fetch('/api/posts'); // Rota de onde você vai buscar os posts
+                const posts = await response.json();
+
+                const postsContainer = document.getElementById('posts-container');
+                postsContainer.innerHTML = ''; // Limpar a mensagem de carregamento
    
     {{#each posts}}
     
@@ -76,6 +85,7 @@
 
 
     <script src="menulateral.js"></script>
-    
+     window.onload = loadPosts;
+    </script>
 </body>
 </html>

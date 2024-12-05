@@ -53,6 +53,22 @@ const passport = require('passport')
                         res.status(500).send('Erro interno no servidor');
                     }
                 });
+
+                app.get('/api/posts', async (req, res) => {
+                    try {
+                        const posts = await Post.findAll({ order: [['id', 'DESC']] });
+                        const postData = posts.map(post => ({
+                            createdAt: post.createdAt,
+                            titulo: post.titulo,
+                            conteudo: post.conteudo,
+                            url: post.url
+                        }));
+                        res.json(postData); // Retorna os dados como JSON
+                    } catch (error) {
+                        console.error('Erro ao buscar posts:', error.message);
+                        res.status(500).send('Erro ao buscar posts');
+                    }
+                });
                 /*app.get('/', async function(req, res)  {
                     try{
                    await Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
