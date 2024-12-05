@@ -28,31 +28,32 @@ module.exports = {
   sequelize: sequelize
 };*/
 
-require('dotenv').config();
+//require('dotenv').config();
 
-const Sequelize = require('sequelize');
+//const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize( 'mysql://root:DSoJgoxppGUcEoumGPWjjjUXsReKvMhN@junction.proxy.rlwy.net:20106/railway' /*process.env.MYSQL_PUBLIC_URL /*process.env.DATABASE_URL*/ || {
-    host: process.env.MYSQLHOST,
-    dialect: 'mysql',
-    username: process.env.MYSQLUSER,
-    password: process.env.MYSQL_ROOT_PASSWORD,
-    database: process.env.MYSQLDATABASE,
-    port: process.env.MYSQLPORT,
+//const sequelize = new Sequelize( 'mysql://root:DSoJgoxppGUcEoumGPWjjjUXsReKvMhN@junction.proxy.rlwy.net:20106/railway' /*process.env.MYSQL_PUBLIC_URL /*process.env.DATABASE_URL*/ || {
+  //  host: process.env.MYSQLHOST,
+  //  dialect: 'mysql',
+  //  username: process.env.MYSQLUSER,
+  //  password: process.env.MYSQL_ROOT_PASSWORD,
+  //  database: process.env.MYSQLDATABASE,
+  //  port: process.env.MYSQLPORT,
    //ssl:true,
-    dialectOptions: {
-        ssl:{
-            require: true,
-            rejectUnauthorized: false
-        }
-    },
-    pool: {
-      max: 5, // Número máximo de conexões
-      min: 0,  // Número mínimo de conexões
-      acquire: 30000, // Tempo máximo para obter uma conexão
-      idle: 10000 // Tempo de inatividade antes de fechar a conexão
-  }
-});
+  //  dialectOptions: {
+   //     ssl:{
+    //        require: true,
+    //        rejectUnauthorized: false
+    //    }
+    //},
+    //pool: {
+    //  max: 5, // Número máximo de conexões
+    //  min: 0,  // Número mínimo de conexões
+    //  acquire: 30000, // Tempo máximo para obter uma conexão
+    //  idle: 10000 // Tempo de inatividade antes de fechar a conexão
+ // }
+//});
+
 
 /*require('dotenv').config();
 const { Sequelize } = require('sequelize'); 
@@ -70,7 +71,3 @@ const sequelize = new Sequelize(process.env.DATABASE_URL , {
   });*/
   
 
-module.exports = {
-    Sequelize: Sequelize,
-    sequelize: sequelize
-};

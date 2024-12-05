@@ -39,7 +39,7 @@ app.get('/', function(req,res){
 
 //tentando renderizar no feed
                 /*feed*/
-                app.get('/feed', function(req, res){
+/*                app.get('/feed', function(req, res){
                     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
                      const postDat = posts.map( posta => ({
                         createdAt: posta.createdAt, 
@@ -53,7 +53,7 @@ app.get('/', function(req,res){
                         
                      })
                 })
-
+*/
 
 function authenticateMiddleware(req, res, next){
     if(req.isAutenticated()) return next()
@@ -100,7 +100,9 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
     //const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-app.use(session({
+
+
+/*app.use(session({
   store: new SequelizeStore({
     db: db.sequelize,
     checkExpirationInterval: 15 * 60 * 1000, // A cada 15 minutos
@@ -111,6 +113,8 @@ app.use(session({
   saveUninitialized: false,
   cookie: { maxAge: 10 * 60 * 1000 } // Ajuste o tempo do cookie se necessário
 }));
+*/
+
 
 app.use(passport.initialize())
 app.use(passport.session())
@@ -133,6 +137,8 @@ app.use(bodyParser.json())
 
 //view home
 //estou tentando a pag home ter altenticaçao
+
+/*
 app.post('/home', function(req, res){
     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
      const postData = posts.map( post => ({
@@ -145,7 +151,7 @@ app.post('/home', function(req, res){
         res.render("home.handlebars", {posts: postData})
      })
 })
-
+*/
 
 
 //mudando pra apos cliclar no botao postar (/form) mudar para a pag login, apos o login mudar para /form
@@ -205,14 +211,17 @@ app.post('/add',/*authenticateMiddleware,*/ function(req,res){
 //vou substituir o botao delete pra renderizar um html e apos verificacao por senha apagar o post
         //no antigo html estava assim  a rota /deletar/ com duas//
 
-app.get('/deletar/:createdAt',  function(req, res){
-    Post.destroy({where: {'createdAt': req.params.createdAt}}).then(function(){
+
+       
+//app.get('/deletar/:createdAt',  function(req, res){
+  //  Post.destroy({where: {'createdAt': req.params.createdAt}}).then(function(){
         //res.send('postagem deletada')
-        res.redirect( '/' /*'/feed'*/ /*'/home'*/)
-    }).catch(function(erro){
-        res.send('essa postagem não existe!' + erro)
-    })
-})
+   //     res.redirect( '/' /*'/feed'*/ /*'/home'*/)
+   // }).catch(function(erro){
+  //      res.send('essa postagem não existe!' + erro)
+   // })
+//})
+
 
 //pesquisar
 /*app.post('/pesquisar', (req, res) => {
@@ -248,7 +257,7 @@ app.get('/deletar/:createdAt',  function(req, res){
 });*/
 
 
-
+/*
 app.post('/pesquisar', (req, res) => {
     const { titulo } = req.body;
     console.log(titulo)
@@ -267,7 +276,7 @@ app.post('/pesquisar', (req, res) => {
         res.sendStatus(500);
     });
 });
-
+*/
 
 //css
 app.use(Express.static('views'))
