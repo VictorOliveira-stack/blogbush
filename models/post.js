@@ -24,7 +24,7 @@ const Post = db.sequelize.define('blogbush4s1s',{
         console.error('Erro ao criar post:', error);
     });*/
 
-Post.sync({force: true})
+//Post.sync({force: true})
 
 module.exports = Post
 
