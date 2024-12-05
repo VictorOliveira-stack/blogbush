@@ -1,4 +1,4 @@
-/*const db = require ('./db')
+const db = require ('./db')
 
 const Post = db.sequelize.define('blogbush4s',{
     titulo: {
@@ -11,7 +11,7 @@ const Post = db.sequelize.define('blogbush4s',{
     url: {
         type: db.Sequelize.TEXT
     }
-})*/
+})
 
 /*Post.create({
     titulo: 'Exemplo de Título',

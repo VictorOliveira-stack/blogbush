@@ -39,7 +39,7 @@ app.get('/', function(req,res){
 
 //tentando renderizar no feed
                 /*feed*/
-/*                app.get('/feed', function(req, res){
+               app.get('/feed', function(req, res){
                     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
                      const postDat = posts.map( posta => ({
                         createdAt: posta.createdAt, 
@@ -53,7 +53,7 @@ app.get('/', function(req,res){
                         
                      })
                 })
-*/
+
 
 function authenticateMiddleware(req, res, next){
     if(req.isAutenticated()) return next()
@@ -78,33 +78,32 @@ const senhaUm = process.env.B_senha1
 
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-//app.use(session({
-    // //store: new RedisStore({client}),
-   //secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
-   //resave: false,
-  // saveUninitialized: false,
-  // store: new SequelizeStore({
-   // db: db.sequelize, // Banco de dados onde a sessão será armazenada
-  //}),
- //   cookie: {maxAge: 10 * 60 *1000}
-//}))
-/*sequelize.sync().then(() => {
+app.use(session({
+     //store: new RedisStore({client}),
+   secret:  '$2y$10$iVPQaFphSF4XnQFez6Jize5lHEbE7PRITZfbqapGhK5UwEX8Gtghq' /*senhaUm*/, /*process.env.B_usuario,*/
+   resave: false,
+   saveUninitialized: false,
+   store: new SequelizeStore({
+     db: db.sequelize, // Banco de dados onde a sessão será armazenada
+  }),
+    cookie: {maxAge: 10 * 60 *1000}
+}))
+sequelize.sync().then(() => {
     console.log("Sessões serão armazenadas no banco de dados.");
-  });*/
+  });
   
-  
-  /*sequelize.authenticate()
+  sequelize.authenticate()
     .then(() => console.log("Conexão com banco de dados bem-sucedida."))
     .catch(err => {
         console.error("Erro ao conectar no banco:", err);
         process.exit(1); // Encerra o servidor se o banco estiver inacessível
-    });*/
+    });
 
     //const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 
 
-/*app.use(session({
+app.use(session({
   store: new SequelizeStore({
     db: db.sequelize,
     checkExpirationInterval: 15 * 60 * 1000, // A cada 15 minutos
@@ -115,7 +114,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
   saveUninitialized: false,
   cookie: { maxAge: 10 * 60 * 1000 } // Ajuste o tempo do cookie se necessário
 }));
-*/
+
 
 
 app.use(passport.initialize())
@@ -140,7 +139,7 @@ app.use(bodyParser.json())
 //view home
 //estou tentando a pag home ter altenticaçao
 
-/*
+
 app.post('/home', function(req, res){
     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
      const postData = posts.map( post => ({
@@ -153,7 +152,7 @@ app.post('/home', function(req, res){
         res.render("home.handlebars", {posts: postData})
      })
 })
-*/
+
 
 
 //mudando pra apos cliclar no botao postar (/form) mudar para a pag login, apos o login mudar para /form
@@ -164,7 +163,7 @@ app.get('/login', function(req, res){
 })
 
 //passport autenticaÇão local
-/*passport.use(new LocalStrategy(
+passport.use(new LocalStrategy(
     function(username, password, done) {
       User.findOne({ username: username }, function (err, user) {
         if (err) { return done(err); }
@@ -173,7 +172,7 @@ app.get('/login', function(req, res){
         return done(null, user);
       });
     }
-  ));*/
+  ));
 
   
 
@@ -192,17 +191,17 @@ app.get('/form',authenticateMiddleware, function(req, res){
 })
 
 
-//app.post('/add',/*authenticateMiddleware,*/ function(req,res){
-  //  Post.create({
-    //    titulo: req.body.titulo,
-      //  conteudo: req.body.conteudo,
-        //url : req.body.url
-    //}).then(function(){
-      //  res.redirect('/'/*'/feed'*//*'/home'*/)
-    //}).catch(function(erro){
-      //  res.send('houve um erro' + erro)
-    //})
-//})
+app.post('/add',/*authenticateMiddleware,*/ function(req,res){
+    Post.create({
+        titulo: req.body.titulo,
+        conteudo: req.body.conteudo,
+        url : req.body.url
+    }).then(function(){
+        res.redirect('/'/*'/feed'*//*'/home'*/)
+    }).catch(function(erro){
+        res.send('houve um erro' + erro)
+    })
+})
 
 
 
@@ -216,14 +215,14 @@ app.get('/form',authenticateMiddleware, function(req, res){
 
 
        
-//app.get('/deletar/:createdAt',  function(req, res){
-  //  Post.destroy({where: {'createdAt': req.params.createdAt}}).then(function(){
-        //res.send('postagem deletada')
-   //     res.redirect( '/' /*'/feed'*/ /*'/home'*/)
-   // }).catch(function(erro){
-  //      res.send('essa postagem não existe!' + erro)
-   // })
-//})
+app.get('/deletar/:createdAt',  function(req, res){
+    Post.destroy({where: {'createdAt': req.params.createdAt}}).then(function(){
+        res.send('postagem deletada')
+        res.redirect( '/' /*'/feed'*/ /*'/home'*/)
+    }).catch(function(erro){
+       res.send('essa postagem não existe!' + erro)
+    })
+})
 
 
 //pesquisar
@@ -260,7 +259,7 @@ app.get('/form',authenticateMiddleware, function(req, res){
 });*/
 
 
-/*
+
 app.post('/pesquisar', (req, res) => {
     const { titulo } = req.body;
     console.log(titulo)
@@ -279,7 +278,7 @@ app.post('/pesquisar', (req, res) => {
         res.sendStatus(500);
     });
 });
-*/
+
 
 //css
 app.use(Express.static('views'))
