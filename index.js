@@ -317,6 +317,6 @@ app.set('trust proxy', true);
 
 const PORT = process.env.PORT || 3000 
 
-app.listen( 3000 /*|| 8080, "0.0.0.0"*/, function(){
+app.listen( PORT || 8080, "0.0.0.0", function(){
     console.log("porta rodando")
 })
