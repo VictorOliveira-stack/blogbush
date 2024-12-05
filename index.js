@@ -33,10 +33,13 @@ const passport = require('passport')
 /*app.get('/', function(req, res) {
     res.send('ola')
 })*/
+app.get('/', function(req,res){
+    return res.render('ola.handlebars')
+})
 
 //tentando renderizar no feed
                 /*feed*/
-                app.get('/', function(req, res){
+                app.get('/feed', function(req, res){
                     Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
                      const postDat = posts.map( posta => ({
                         createdAt: posta.createdAt, 
